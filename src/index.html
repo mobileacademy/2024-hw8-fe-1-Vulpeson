@@ -1,9 +1,94 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Minesweeper</title>
-    
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      #game-board {
+        display: grid;
+        gap: 2px;
+        margin-top: 20px;
+      }
+
+      .square {
+        width: 30px;
+        height: 30px;
+        background-color: lightgray;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid #999;
+      }
+
+      .bomb {
+        background-color: red;
+      }
+
+      .flag {
+        background-color: yellow;
+      }
+
+      .opened {
+        background-color: lightgreen;
+        pointer-events: none;  
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      label, input, select {
+        font-size: 16px;
+      }
+
+      #game-status {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello world</h1>
+    <h1>Minesweeper Game</h1>
+
+    <div class="controls">
+      <label for="difficulty">Select Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="expert">Expert</option>
+      </select>
+
+      <label for="bombProbability">Bomb Probability:</label>
+      <input type="number" id="bombProbability" value="3" min="1" max="10">
+
+      <label for="maxProbability">Max Probability:</label>
+      <input type="number" id="maxProbability" value="15" min="5" max="20">
+    </div>
+
+    <div id="game-board"></div>
+
+    <p id="game-status"></p>
+
+    <script src="solution-template.js"></script>
   </body>
 </html>
